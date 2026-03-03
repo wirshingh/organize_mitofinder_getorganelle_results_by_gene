@@ -6,7 +6,7 @@ The outputs from the Mitofinder and GetOrganelle/MITOS analyses using the Hydra 
 
 To reorganize this data into directories with sequences grouped by each mitochondrial gene, run the following job files in Hydra for either Mitofinder or GetOrganelle/MITOS results.
 
-The scrips are set up to run within the "mitofinder_trimmedreads_Final_Genes" and "mitos_Final_Genes" diretctories of Mitofinder and GetOrganelle/MITOS, respectively. However, if you would like to run the job files from a different directory in Hydra, paste the full path the corresponding results directory after "prodir=" in the job file.
+The scrips are set up to run within the "mitofinder_trimmedreads_Final_Genes" and "mitos_Final_Genes" diretctories of Mitofinder and GetOrganelle/MITOS, respectively. However, if you would like to run the job files from a different directory in Hydra, paste the full path to the corresponding results directory after "prodir=" in the job file.
 
 ### Mitofinder
 ```
