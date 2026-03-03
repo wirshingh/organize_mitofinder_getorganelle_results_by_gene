@@ -11,11 +11,20 @@ The scrips are set up to run within the "_Final_Genes" and "_Final_xxxx" diretct
 ### Mitofinder
 ```
 
-#!/bin/bash
-
-#THIS SCRTPT WILL PULL ALL SEQUENCES FROM THE "_Final_Genes" OUTPUT FILES FROM MITOFINDER RUNS (HHW JOB FILE)
-#TO RUN SCRIPT - File must be within the "Final_Genes" results directory.
-
+# /bin/csh
+# ----------------Parameters---------------------- #
+#$ -S /bin/csh
+#$ -q sThC.q
+#$ -l mres=7G,h_data=7G,h_vmem=7G
+#$ -cwd
+#$ -j y
+#
+# ----------------Modules------------------------- #
+#
+# ----------------Your Commands------------------- #
+#
+echo + `date` job $JOB_NAME started in $QUEUE with jobID=$JOB_ID on $HOSTNAME
+#
 # 1. Configuration
 prodir="."
 outdir="${prodir}/sequences_by_gene"
@@ -67,6 +76,77 @@ done
 
 echo "------------------------------------------"
 echo "Summary saved to: $summary_file"
+#
+echo = `date` job $JOB_NAME done
 
 ```
 
+### GetOrganelle
+
+```
+# /bin/csh
+# ----------------Parameters---------------------- #
+#$ -S /bin/csh
+#$ -q sThC.q
+#$ -l mres=7G,h_data=7G,h_vmem=7G
+#$ -cwd
+#$ -j y
+#
+# ----------------Modules------------------------- #
+#
+# ----------------Your Commands------------------- #
+#
+echo + `date` job $JOB_NAME started in $QUEUE with jobID=$JOB_ID on $HOSTNAME
+#
+# 1. Configuration
+prodir="."
+outdir="${prodir}/sequences_by_gene"
+mtgenes="atp8 cox1 rrnL nad1 cob nad2 nad6 atp6 nad4 rrnS cox3 cox2 nad4l nad3 nad5 msh1"
+summary_file="${outdir}/sequences_by_gene_summary.txt"
+
+# 2. Create directories
+mkdir -p "$outdir"
+for gene in $mtgenes; do
+    mkdir -p "${outdir}/${gene}"
+    # Empty the file if it already exists
+    > "${outdir}/${gene}/${gene}_all_samples.fasta"
+done
+
+# 3. Extraction Logic
+echo "Starting extraction from MitoFinder files..."
+
+# Loop through every NT.fasta file in the directory
+for file in "${prodir}"/*.fasta; do
+    # Check if files actually exist
+    [ -e "$file" ] || continue
+    echo "Processing: $(basename "$file")"
+    
+	for gene in $mtgenes; do
+    # Search for headers containing "; gene_name"
+    awk -v g="$gene" 'BEGIN { RS = ">"; ORS = "" } $0 ~ "; " g { print ">" $0 }' "$file" >> "${outdir}/${gene}/${gene}_all_samples.fasta"
+	done
+done
+
+# 4. Summary Report
+# We use { ... } > "$summary_file" to save the output, 
+# and "tee" to still show it on your screen.
+{
+    echo "------------------------------------------"
+    echo "Extraction complete. Summary of sequences:"
+    for gene in $mtgenes; do
+        outfile="${outdir}/${gene}/${gene}_all_samples.fasta"
+        if [ -s "$outfile" ]; then
+            count=$(grep -c ">" "$outfile")
+            echo " - ${gene}: ${count} sequences"
+        else
+            echo " - ${gene}: 0 sequences found"
+        fi
+    done
+} | tee "$summary_file"
+
+echo "------------------------------------------"
+echo "Summary saved to: $summary_file"
+#
+echo = `date` job $JOB_NAME done
+
+```
