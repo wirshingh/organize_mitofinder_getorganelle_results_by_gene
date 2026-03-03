@@ -11,7 +11,6 @@ The results will be a directory called "sequences_by_gene" copied to the "_Final
 ### Important
 Paste the full path to the corresponding "_Final_Genes" directory after "prodir=" in the job file.
 
-Resuts will be in a directory called "sequences_by_gene".
 
 ----------------------------------------------------------
 
