@@ -6,7 +6,7 @@ The outputs from the Mitofinder and GetOrganelle/MITOS analyses using the Hydra 
 
 To reorganize this data into directories with sequences grouped by each mitochondrial gene, run the following job files in Hydra for either Mitofinder or GetOrganelle/MITOS results.
 
-The scrips are set up to run within the "mitofinder_trimmedreads_Final_Genes" and "mitos_Final_Genes" diretctories of Mitofinder and GetOrganelle/MITOS, respectively. However, if you would like to run the job files from a different directory in Hydra, paste the full path to the corresponding results directory after "prodir=" in the job file.
+Paste the full path to the corresponding results directory after "prodir=" in the job file.
 
 Resuts will be in a directory called "sequences_by_gene".
 
@@ -30,7 +30,7 @@ Resuts will be in a directory called "sequences_by_gene".
 echo + `date` job $JOB_NAME started in $QUEUE with jobID=$JOB_ID on $HOSTNAME
 #
 # 1. Configuration
-prodir="."
+prodir="PASTE FULL PATH TO 'FINAL_GENES' DIRECTORY"
 outdir="${prodir}/sequences_by_gene"
 mtgenes="ATP8 COX1 rrnL ND1 CYTB ND2 ND6 ATP6 ND4 rrnS COX3 COX2 ND4L ND3 ND5 mutS"
 summary_file="${outdir}/sequences_by_gene_summary.txt"
@@ -105,7 +105,7 @@ echo = `date` job $JOB_NAME done
 echo + `date` job $JOB_NAME started in $QUEUE with jobID=$JOB_ID on $HOSTNAME
 #
 # 1. Configuration
-prodir="."
+prodir="PASTE FULL PATH TO 'FINAL_GENES' DIRECTORY"
 outdir="${prodir}/sequences_by_gene"
 mtgenes="atp8 cox1 rrnL nad1 cob nad2 nad6 atp6 nad4 rrnS cox3 cox2 nad4l nad3 nad5 msh1"
 summary_file="${outdir}/sequences_by_gene_summary.txt"
