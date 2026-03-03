@@ -20,6 +20,8 @@ Resuts will be in a directory called "sequences_by_gene".
 #$ -l mres=7G,h_data=7G,h_vmem=7G
 #$ -cwd
 #$ -j y
+#$ -N sequence_by_gene
+#$ -o sequence_by_gene.log
 #
 # ----------------Modules------------------------- #
 #
@@ -93,6 +95,8 @@ echo = `date` job $JOB_NAME done
 #$ -l mres=7G,h_data=7G,h_vmem=7G
 #$ -cwd
 #$ -j y
+#$ -N sequence_by_gene
+#$ -o sequence_by_gene.log
 #
 # ----------------Modules------------------------- #
 #
