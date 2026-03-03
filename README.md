@@ -13,9 +13,9 @@ Resuts will be in a directory called "sequences_by_gene".
 ### Mitofinder
 ```
 
-# /bin/csh
+# /bin/sh
 # ----------------Parameters---------------------- #
-#$ -S /bin/csh
+#$ -S /bin/sh
 #$ -q sThC.q
 #$ -l mres=7G,h_data=7G,h_vmem=7G
 #$ -cwd
@@ -88,9 +88,9 @@ echo = `date` job $JOB_NAME done
 ### GetOrganelle/MITOS
 
 ```
-# /bin/csh
+# /bin/sh
 # ----------------Parameters---------------------- #
-#$ -S /bin/csh
+#$ -S /bin/sh
 #$ -q sThC.q
 #$ -l mres=7G,h_data=7G,h_vmem=7G
 #$ -cwd
