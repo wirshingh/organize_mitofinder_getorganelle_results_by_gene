@@ -1,12 +1,12 @@
-# Organize Mitofinder and GetOrganelle results by gene
-These scripts will use the outputs from Mitofinder or GetOrganelle to create new directories with the mitochondrial sequence data organized by each gene.
+# Organize Mitofinder and GetOrganelle/MITOS results by gene
+These scripts will use the outputs from Mitofinder or GetOrganelle/MITOS to create new directories with the mitochondrial sequence data organized by each gene.
 
 ## How Run the Scripts
-The outputs from the Mitofinder and GetOrganelle analyses using the Hydra job files from this GitHub page will create directories called "Final_Genes" for Mitofinder results and "Final_XXX" for GetOrganelle results. These directories contain a fasta file for each sample with all the mitogenes for that sample. 
+The outputs from the Mitofinder and GetOrganelle/MITOS analyses using the Hydra job files from this GitHub page will create directories called "mitofinder_trimmedreads_Final_Genes" for Mitofinder results and "mitos_Final_Genes" for GetOrganelle/MITOS results. These directories contain a fasta file for each sample with all the mitogenes for that sample. 
 
-To reorganize this data into directories with sequences grouped by each mitochondrial gene, run the following job files in Hydra for either Mitofinder or GetOrganelle results.
+To reorganize this data into directories with sequences grouped by each mitochondrial gene, run the following job files in Hydra for either Mitofinder or GetOrganelle/MITOS results.
 
-The scrips are set up to run within the "_Final_Genes" and "_Final_xxxx" diretctories of Mitofinder and GetOrganelle, respectively. However, if you would like to run the job files from a different directory in Hydra, paste the full path the corresponding results directory after "prodir=" in the job file.
+The scrips are set up to run within the "mitofinder_trimmedreads_Final_Genes" and "mitos_Final_Genes" diretctories of Mitofinder and GetOrganelle/MITOS, respectively. However, if you would like to run the job files from a different directory in Hydra, paste the full path the corresponding results directory after "prodir=" in the job file.
 
 ### Mitofinder
 ```
@@ -81,7 +81,7 @@ echo = `date` job $JOB_NAME done
 
 ```
 
-### GetOrganelle
+### GetOrganelle/MITOS
 
 ```
 # /bin/csh
