@@ -8,6 +8,8 @@ To reorganize this data into directories with sequences grouped by each mitochon
 
 The scrips are set up to run within the "mitofinder_trimmedreads_Final_Genes" and "mitos_Final_Genes" diretctories of Mitofinder and GetOrganelle/MITOS, respectively. However, if you would like to run the job files from a different directory in Hydra, paste the full path to the corresponding results directory after "prodir=" in the job file.
 
+Resuts will be in a directory called "sequences_by_gene".
+
 ### Mitofinder
 ```
 
