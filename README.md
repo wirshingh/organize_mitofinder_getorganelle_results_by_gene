@@ -7,7 +7,7 @@ The outputs from the Mitofinder and GetOrganelle/MITOS analyses using the Hydra 
 To reorganize this data into directories with sequences grouped by each mitochondrial gene, run the following job files in Hydra for either Mitofinder or GetOrganelle/MITOS results.
 
 ### Important
-Paste the full path to the corresponding results directory after "prodir=" in the job file.
+Paste the full path to the corresponding "_Final_Genes" directory after "prodir=" in the job file.
 
 Resuts will be in a directory called "sequences_by_gene".
 
