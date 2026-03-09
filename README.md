@@ -2,7 +2,7 @@
 These scripts will use the outputs from Mitofinder or GetOrganelle/MITOS to create new directories with the mitochondrial sequence data organized by each gene.
 
 ## How Run the Scripts
-The outputs from the Mitofinder and GetOrganelle/MITOS analyses using the Hydra job files from this GitHub page will create directories called "mitofinder_trimmedreads_Final_Genes" for Mitofinder results and "mitos_Final_Genes" for GetOrganelle/MITOS results. These directories contain a fasta file for each sample with all the mitogenes for that sample. 
+The outputs from Mitofinder and GetOrganelle/MITOS analyses using the Hydra job files from this GitHub page will create directories called "mitofinder_trimmedreads_Final_Genes" for Mitofinder results and "mitos_Final_Genes" for GetOrganelle/MITOS results. These directories contain a fasta file for each sample with all the mitogenes for that sample. 
 
 To reorganize this data into directories with sequences grouped by each mitochondrial gene, run the following job files in Hydra for either Mitofinder or GetOrganelle/MITOS results.
 
